@@ -8,7 +8,7 @@
 <div class="cotent">
     <h1 style="text-align: center;">Task Master</h1>
     {% if tasks|length < 1 %}
-    <h4 style="text-align: center;">There are no task</h4>
+    <h2 style="text-align: center;">Enter news article </h2>
     {% else %}
     <table style="margin-left:auto;margin-right:auto;">
         <tr>
@@ -30,13 +30,20 @@
         
     </table>
     {% endif %}
+    <!-- Latest compiled and minified CSS -->
+
 <div>
     <br>
 </div>
 <div class="form" style="text-align: center;">
     <form action="/" method="POST">
-        <input type="text" name="content" id="content">
-        <input type="submit" value="Add Task">
+        
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1"></label><br>
+            <br>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="content"  rows="3" style="height: 300px;width: 600px;" ></textarea>
+        </div>
+        <button class="button button2" type="submit" value="Add Task" >Submit Task</button>
     </form>
 </div>
     

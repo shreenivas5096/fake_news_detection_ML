@@ -1,6 +1,9 @@
 from datetime import datetime
 from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
+import prog
+
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
@@ -20,6 +23,12 @@ def index():
 
     if request.method=='POST':
         task_content =request.form['content']
+        p_result = prog.news_predictor(task_content)
+        if p_result==1:
+            return render_template('output.html',tasks={'value':'True News Detected'})
+        else:
+            return render_template('output.html',tasks={'value':'Fake News Detected'})
+        
         new_task=Todo(content=task_content)
 
         try:
